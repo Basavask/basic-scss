@@ -1,0 +1,18 @@
+// ---------mixins, functions and extends------------------
+@mixin text-decorator {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+%anime-time-1s-ease-out {
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+
+@mixin clear_fix {
+    content: "";
+    clear: "both";
+    display: table;
+}
+// ---------mixins, functions and extends------------------
