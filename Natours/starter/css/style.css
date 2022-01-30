@@ -1,76 +1,6 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box; }
-
-.img-logo-main, .header-primary-main, .header-primary-sub {
+.header-primary--main, .header-primary--sub, .header__img-logo-main {
   animation-duration: 1s;
   animation-timing-function: ease-out; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 20px;
-  padding: 10px;
-  font-weight: 500;
-  color: #777;
-  width: 100%; }
-
-.header {
-  background-image: linear-gradient(to right bottom, #7ed56f3d, #28b485cf), url(../img/hero.jpg);
-  background-position: top;
-  background-size: cover;
-  height: 95vh;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
-  position: relative;
-  animation-name: moveIn;
-  animation-duration: 2s;
-  animation-timing-function: ease-out; }
-
-.img-logo-main {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  animation-name: moveIn; }
-  .img-logo-main .img-logo {
-    height: 40px; }
-
-.header-text_box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  cursor: auto; }
-
-.header-primary {
-  color: #fff;
-  margin-bottom: 40px;
-  backface-visibility: hidden;
-  text-transform: uppercase;
-  text-decoration: none; }
-
-.header-primary-main {
-  display: block;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 40px;
-  animation-name: moveInLeft;
-  /* animation-direction: reverse; */ }
-
-.header-primary-sub {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 24.5px;
-  animation-name: moveInRight; }
 
 @keyframes moveIn {
   0% {
@@ -101,8 +31,50 @@ body {
     opacity: 1;
     transform: translate(0); } }
 
-.btn:link,
-.btn:visited {
+@keyframes moveUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0; }
+  80% {
+    transform: translateY(-10px); }
+  100% {
+    transform: translate(0);
+    opacity: 1; } }
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 20px;
+  padding: 10px;
+  font-weight: 500;
+  color: #777;
+  width: 100%; }
+
+.header-primary {
+  color: #fff;
+  margin-bottom: 40px;
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  text-decoration: none; }
+  .header-primary--main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 40px;
+    animation-name: moveInLeft;
+    /* animation-direction: reverse; */ }
+  .header-primary--sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 24.5px;
+    animation-name: moveInRight; }
+
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
@@ -113,18 +85,6 @@ body {
   font-size: 15px;
   animation: moveUp 1s ease-out 0.75s;
   animation-fill-mode: backwards; }
-
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); }
-
-.btn-white {
-  background-color: #fff;
-  color: #777; }
 
 .btn::after {
   content: '';
@@ -138,19 +98,66 @@ body {
   left: 0%;
   z-index: -1; }
 
-.btn-white::after {
-  background-color: #fff; }
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); }
 
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.5);
-  opacity: 0; }
-
-@keyframes moveUp {
-  0% {
-    transform: translateY(40px);
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.5);
     opacity: 0; }
-  80% {
-    transform: translateY(-10px); }
-  100% {
-    transform: translate(0);
-    opacity: 1; } }
+
+.btn-white {
+  background-color: #fff;
+  color: #777; }
+  .btn-white::after {
+    background-color: #fff; }
+
+.header {
+  background-image: linear-gradient(to right bottom, #7ed56f3d, #28b485cf), url(../img/hero.jpg);
+  background-position: top;
+  background-size: cover;
+  height: 95vh;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
+  position: relative;
+  animation-name: moveIn;
+  animation-duration: 2s;
+  animation-timing-function: ease-out; }
+  .header__img-logo-main {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    animation-name: moveIn; }
+    .header__img-logo-main .img-logo {
+      height: 40px; }
+  .header__text_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    cursor: auto; }
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+  width: 100%;
+  content: "";
+  clear: "both";
+  display: table; }
+  .row:not(:last-child) {
+    margin-bottom: 5rem; }
+  .row [class^='col-'] {
+    background-color: red;
+    float: left; }
+    .row [class^='col-']:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-iof-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-iof-3 {
+    width: calc((100% - (2 * 6rem)) / 3); }
+  .row .col-2-iof-3 {
+    width: calc( 2 * ((100% - (2 * 6rem)) / 3) + 6rem); }

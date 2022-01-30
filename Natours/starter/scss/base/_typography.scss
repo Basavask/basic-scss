@@ -1,0 +1,31 @@
+
+.header-primary {
+    color: $color-white;
+    margin-bottom: 40px;
+  
+    backface-visibility: hidden;
+    @include text-decorator;
+  
+    &--main {
+      display: block;
+      font-size: 60px;
+      font-weight: 400;
+      letter-spacing: 40px;
+  
+      animation-name: moveInLeft;
+      @extend %anime-time-1s-ease-out;
+  
+      /* animation-direction: reverse; */
+    }
+  
+    &--sub {
+      display: block;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 24.5px;
+  
+      animation-name: moveInRight;
+      @extend %anime-time-1s-ease-out;
+    }
+  }
+  

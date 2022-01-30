@@ -1,0 +1,37 @@
+
+// ---------styles ----------------------------------------
+.header {
+    background-image: linear-gradient(to right bottom, #7ed56f3d, #28b485cf),
+      url(../img/hero.jpg);
+    background-position: top;
+    background-size: cover;
+    height: 95vh;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75vh, 0% 100%);
+    position: relative;
+    animation-name: moveIn;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+  
+    &__img-logo-main {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+  
+      animation-name: moveIn;
+      @extend %anime-time-1s-ease-out;
+  
+      .img-logo {
+        height: 40px;
+      }
+    }
+  
+    &__text_box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      cursor: auto;
+    }
+  }
+  

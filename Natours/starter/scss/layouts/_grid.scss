@@ -1,0 +1,35 @@
+.row {
+  max-width: $max-grid-width;
+  background-color: $color-light-white;
+  margin: 0 auto;
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-bottom-width;
+  }
+
+  @include clear_fix;
+
+  [class^='col-'] {
+    background-color: red;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-right-width;
+    }
+  }
+
+  .col-1-iof-2 {
+    width: calc((100% - #{$gutter-right-width}) / 2);
+  }
+
+  .col-1-iof-3 {
+    width: calc((100% - (2 * #{$gutter-right-width})) / 3);
+  }
+
+  .col-2-iof-3 {
+    width: calc(
+      2 * ((100% - (2 * #{$gutter-right-width})) / 3) + #{$gutter-right-width}
+    );
+  }
+}
