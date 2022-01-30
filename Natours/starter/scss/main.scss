@@ -6,25 +6,38 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
-.img-logo-main, .header-primary-main, .header-primary-sub {
+$color-white: #fff;
+$color-grey: #777;
+
+@mixin text-decorator {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+%anime-time-1s-ease-out {
   animation-duration: 1s;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out;
+}
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 20px;
   padding: 10px;
   font-weight: 500;
-  color: #777;
-  width: 100%; }
+  color: $color-grey;
+  width: 100%;
+}
 
 .header {
-  background-image: linear-gradient(to right bottom, #7ed56f3d, #28b485cf), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, #7ed56f3d, #28b485cf),
+    url(../img/hero.jpg);
   background-position: top;
   background-size: cover;
   height: 95vh;
@@ -32,15 +45,21 @@ body {
   position: relative;
   animation-name: moveIn;
   animation-duration: 2s;
-  animation-timing-function: ease-out; }
+  animation-timing-function: ease-out;
+}
 
 .img-logo-main {
   position: absolute;
   top: 40px;
   left: 40px;
-  animation-name: moveIn; }
-  .img-logo-main .img-logo {
-    height: 40px; }
+
+  animation-name: moveIn;
+  @extend %anime-time-1s-ease-out;
+
+  .img-logo {
+    height: 40px;
+  }
+}
 
 .header-text_box {
   position: absolute;
@@ -48,83 +67,111 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  cursor: auto; }
+  cursor: auto;
+}
 
 .header-primary {
-  color: #fff;
+  color: $color-white;
   margin-bottom: 40px;
+
   backface-visibility: hidden;
-  text-transform: uppercase;
-  text-decoration: none; }
+  @include text-decorator;
+}
 
 .header-primary-main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 40px;
+
   animation-name: moveInLeft;
-  /* animation-direction: reverse; */ }
+  @extend %anime-time-1s-ease-out;
+
+  /* animation-direction: reverse; */
+}
 
 .header-primary-sub {
   display: block;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 24.5px;
-  animation-name: moveInRight; }
+
+  animation-name: moveInRight;
+  @extend %anime-time-1s-ease-out;
+}
 
 @keyframes moveIn {
   0% {
-    opacity: 0; }
+    opacity: 0;
+  }
   75% {
-    /* transform: translate(-15); */ }
+    /* transform: translate(-15); */
+  }
+
   100% {
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
 
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px); }
+    transform: translateX(-100px);
+  }
   75% {
-    transform: translateX(15px); }
+    transform: translateX(15px);
+  }
+
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
     transform: translateX(100px);
-    /* transform: translate3d(0); */ }
+    /* transform: translate3d(0); */
+  }
   75% {
-    transform: translateX(-15px); }
+    transform: translateX(-15px);
+  }
+
   100% {
     opacity: 1;
-    transform: translate(0); } }
+    transform: translate(0);
+  }
+}
 
 .btn:link,
 .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
+  @include text-decorator;
   padding: 15px 40px;
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
   position: relative;
   font-size: 15px;
+
   animation: moveUp 1s ease-out 0.75s;
-  animation-fill-mode: backwards; }
+  animation-fill-mode: backwards;
+}
 
 .btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
 
 .btn-white {
-  background-color: #fff;
-  color: #777; }
+  background-color: $color-white;
+  color: $color-grey;
+}
 
 .btn::after {
   content: '';
@@ -136,21 +183,30 @@ body {
   position: absolute;
   top: 0%;
   left: 0%;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .btn-white::after {
-  background-color: #fff; }
+  background-color: $color-white;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.5);
-  opacity: 0; }
+  opacity: 0;
+}
 
 @keyframes moveUp {
   0% {
     transform: translateY(40px);
-    opacity: 0; }
+    opacity: 0;
+  }
+
   80% {
-    transform: translateY(-10px); }
+    transform: translateY(-10px);
+  }
+
   100% {
     transform: translate(0);
-    opacity: 1; } }
+    opacity: 1;
+  }
+}
